@@ -6,7 +6,6 @@ static const Block blocks[] = {
 	{"ram: ", "free -h | awk '/^Mem/ { print $3 }' | sed s/i//g",	10, 0},
   {"net: ", "cat /sys/class/net/e*/operstate", 10, 0},
 	{"", "date '+%a %d %b - %I:%M%p'", 60, 0},
-  {"", "echo \"$USER \"", 0, 0},
 };
 
 //sets delimeter between status commands. NULL character ('\0') means no delimeter.
