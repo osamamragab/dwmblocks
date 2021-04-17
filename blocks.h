@@ -1,11 +1,11 @@
 // Modify this file to change what commands output to your statusbar, and recompile using the make command.
 static const Block blocks[] = {
 	// Icon    Command    Update Interval    Update Signal
-	{"", "[ -s /tmp/recordinginfo ] && echo \"[rec: $(cat /tmp/recordinginfo | sed -n 2p)]\"", 0, 9},
+	{"", "[ -s /tmp/recordinginfo ] && echo \"[rec: $(sed -n 2p /tmp/recordinginfo)]\"", 0, 9},
 	{"key: ", "setxkbmap -query | awk '/layout/{print $2}'", 0, 8},
 	{"vol: ", "pamixer --get-volume-human", 0, 7},
-	{"cpu: ", "sensors | awk '/Core 0/ {print $3}'", 10, 0},
-	{"ram: ", "free -h | awk '/^Mem/ {print substr($3, 1, length($3)-1)}'",	10, 0},
+	{"cpu: ", "sensors | awk '/Core 0/{print $3}'", 10, 0},
+	{"ram: ", "free -h | awk '/^Mem/{print substr($3, 1, length($3)-1)}'",	10, 0},
 	{"net: ", "cat /sys/class/net/e*/operstate", 10, 0},
 	{"", "date '+%a %d %b - %I:%M%p'", 60, 0},
 };
