@@ -8,7 +8,8 @@ static const Block blocks[] = {
 	{"mem: ", "free -h | awk '/^Mem/{print substr($3, 1, length($3)-1)}'", 10, 0},
 	{"cpu: ", "sensors | awk '/Core 0/{print $3}'", 10, 0},
 	{"net: ", "cat /sys/class/net/e*/operstate", 10, 0},
-	{"", "date '+%a %d %b - %H:%M '", 60, 0},
+	{"", "date '+%a %d %b - %H:%M'", 60, 0},
+	{"", "echo \"#$((($(date +%s) - $(date -d 2004-06-09 +%s)) / 86400))\"", 60*60, 10},
 };
 
 // sets delimeter between status commands. NULL character ('\0') means no delimeter.
