@@ -9,7 +9,7 @@ static const Block blocks[] = {
 	{"vol: ", "pamixer --get-volume-human", 0, 7},
 	{"mem: ", "free -h | awk '/^Mem/{print substr($3, 1, length($3)-1)}'", 5, 0},
 	{"cpu: ", "sensors | awk '/Core 0/{print $3}'", 5, 0},
-	{"", "date '+%a %d %b - %H:%M'", 60, 0},
+	{"", "date '+%a %d %b - %H:%M'", 15, 0},
 	{"", "echo \"#$((($(date +%s) - $(date -d 2004-06-09 +%s)) / 86400))\"", 60*60, 10},
 };
 
