@@ -53,7 +53,7 @@ static void (*writestatus) () = pstdout;
 static char statusbar[LENGTH(blocks)][CMDLENGTH] = {0};
 static char statusstr[2][STATUSLENGTH];
 static int statusContinue = 1;
-static int returnStatus = 0;
+// static int returnStatus = 0;
 
 //opens process *cmd and stores output in *output
 void getcmd(const Block *block, char *output)
@@ -73,7 +73,7 @@ void getcmd(const Block *block, char *output)
 	//only chop off newline if one is present at the end
 	i = output[i-1] == '\n' ? i-1 : i;
 	if (delim[0] != '\0') {
-		strncpy(output+i, delim, delimLen); 
+		strncpy(output+i, delim, delimLen);
 	}
 	else
 		output[i++] = '\0';
