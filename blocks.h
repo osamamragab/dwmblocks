@@ -4,13 +4,13 @@ static const Block blocks[] = {
 	{"", "[ -s /tmp/recordinginfo ] && echo \"[rec: $(sed -n 2p /tmp/recordinginfo)]\"", 0, 9},
 	//{"key: ", "setxkbmap -query | awk '/layout/{print $2}'", 0, 8},
 	{"", "nettraf", 5, 0},
-	{"net: ", "cat /sys/class/net/e*/operstate", 5, 0},
-	{"not: ", "[ \"$(dunstctl is-paused)\" = false ] && echo on || echo off", 0, 6},
+	{"net: ", "[ \"$(nmcli networking connectivity)\" = none ] && echo off || echo on", 10, 5},
+	{"not: ", "[ \"$(dunstctl is-paused)\" = true ] && echo off || echo on", 0, 6},
 	{"vol: ", "pamixer --get-volume-human", 0, 7},
 	{"mem: ", "free -h | awk '/^Mem/{print substr($3, 1, length($3)-1)}'", 5, 0},
 	{"cpu: ", "sensors | awk '/Core 0/{print $3}'", 5, 0},
 	{"", "date '+%a %d %b - %H:%M'", 15, 0},
-	{"", "echo \"#$((($(date +%s) - $(date -d 2004-06-09 +%s)) / 86400))\"", 60*60, 10},
+	{"", "echo \"#$((($(date +%s) - $(date -d 2004-06-09 +%s)) / 86400))\"", 60*60, 0},
 };
 
 // sets delimeter between status commands. NULL character ('\0') means no delimeter.
