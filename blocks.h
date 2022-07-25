@@ -3,8 +3,8 @@ static const Block blocks[] = {
 	// Icon    Command    Update Interval    Update Signal
 	{"", "[ -s /tmp/recordinginfo ] && echo \"[rec: $(sed -n 2p /tmp/recordinginfo)]\"", 0, 9},
 	//{"key: ", "setxkbmap -query | awk '/layout/{print $2}'", 0, 8},
-	{"", "nettraf", 5, 0},
-	{"net: ", "[ \"$(nmcli networking connectivity)\" = none ] && echo off || echo on", 10, 5},
+	{"", "nettraf", 1, 0},
+	{"net: ", "[ \"$(nmcli networking connectivity)\" = none ] && echo off || echo on", 5, 5},
 	{"not: ", "[ \"$(dunstctl is-paused)\" = true ] && echo off || echo on", 0, 6},
 	{"vol: ", "pamixer --get-volume-human", 0, 7},
 	{"mem: ", "free -h | awk '/^Mem/{print substr($3, 1, length($3)-1)}'", 5, 0},
