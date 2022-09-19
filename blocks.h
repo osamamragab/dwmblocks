@@ -4,11 +4,12 @@ static const Block blocks[] = {
 	{"", "[ -s /tmp/recordinginfo ] && echo \"[rec: $(sed -n 2p /tmp/recordinginfo)]\"", 0, 9},
 	//{"key: ", "setxkbmap -query | awk '/layout/{print $2}'", 0, 8},
 	{"", "nettraf", 1, 0},
-	{"net: ", "nmcli networking connectivity", 5, 5},
+	{"net: ", "nmcli networking connectivity check", 5, 5},
 	{"not: ", "dunstctl is-paused | sed 's/false/on/; s/true/off/'", 0, 6},
 	{"vol: ", "pamixer --get-volume-human", 0, 7},
 	{"mem: ", "free -h | awk '/^Mem/{print substr($3, 1, length($3)-1)}'", 5, 0},
 	{"cpu: ", "sensors | awk '/Core 0/{print $3}'", 5, 0},
+	{"bat: ", "batstat", 5, 0},
 	{"", "date '+%a %d %b - %H:%M'", 15, 0},
 	{"", "echo \"#$((($(date +%s) - $(date -d 2004-06-09 +%s)) / 86400))\"", 60*60, 0},
 };
