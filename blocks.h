@@ -1,7 +1,7 @@
 // Modify this file to change what commands output to your statusbar, and recompile using the make command.
 static const Block blocks[] = {
 	// Icon    Command    Update Interval    Update Signal
-	{"", "[ -s /tmp/recordinginfo ] && echo \"[rec: $(sed -n 2p /tmp/recordinginfo)]\"", 0, 9},
+	{"", "cat /tmp/recordinginfo 2>/dev/null", 0, 9},
 	//{"key: ", "setxkbmap -query | awk '/layout/{print $2}'", 0, 8},
 	{"", "nettraf", 1, 0},
 	{"net: ", "netconstat", 5, 5},
