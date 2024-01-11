@@ -8,7 +8,7 @@ static const Block blocks[] = {
 	// {"not: ", "dunstctl is-paused | sed 's/false/on/; s/true/off/'", 0, 6},
 	{"vol: ", "volumectl get", 0, 7},
 	{"mem: ", "free -h | awk '/^Mem/{print substr($3, 1, length($3)-1)}'", 10, 0},
-	{"cpu: ", "sensors | awk '/Core 0/{print $3}'", 10, 0},
+	{"cpu: ", "sensors | awk '/Package id/{print $4}'", 10, 0},
 	{"bat: ", "batstat", 10, 8},
 	{"", "date '+%a %d %b - %H:%M'", 60, 0},
 	{"", "echo \"#$((($(date +%s) - $(date -d 2004-06-09 +%s)) / 86400))\"", 60*60, 0},
